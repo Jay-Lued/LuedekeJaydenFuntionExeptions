@@ -1,3 +1,7 @@
+//Jayden Luedeke
+//Cis 1202
+//May 7, 2023
+
 #include <iostream>
 
 using namespace std;
@@ -7,7 +11,7 @@ class NotLetter_C
 public:
 	string Throw_Not_Letter()
 	{
-		return ("Start character is not a letter: re-enter number");
+		return ("Start character is not a letter: re-enter number\n");
 	}
 };
 
@@ -16,7 +20,7 @@ class NotRange_C
 public:
 	string Out_Of_Bounds()
 	{
-		return ("New character is out of bounds: re-enter number");
+		return ("New character is out of bounds: re-enter number\n");
 	}
 };
 
@@ -61,6 +65,11 @@ int main()
 
 char character(char& start, int offset)
 {
+	if (offset > 25 || offset < -25)
+	{
+		throw NotRange_C();
+	}
+	
 	if ((start < 65 || start > 90) && (start < 97 || start > 122))
 	{
 		throw NotLetter_C();
